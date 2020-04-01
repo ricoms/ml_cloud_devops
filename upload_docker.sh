@@ -10,5 +10,7 @@ tag=$(git rev-parse --verify HEAD | sed -r 's/(.{7}).*/\1/g')
 echo "Docker ID and Image: $dockerpath"
 docker login
 docker tag api ${dockerpath}:${tag}
-
 docker push ${dockerpath}:${tag}
+
+docker tag api ${dockerpath}:latest
+docker push ${dockerpath}:latest
